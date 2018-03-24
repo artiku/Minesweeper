@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed" rel="stylesheet">
+		<link rel="stylesheet" type="text/css"
+			  href="minesweeperstyle.css"/>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	</head>
+	<body>
+		<div class="bg-block">
+	
+			<div class="logo-header">Minesweeper</div>
+			<div class="game-wrapper">
+				<div class="start-header">
+					Mines:<input class="input-form" id="mine-amount">
+					<button class="start-button" type="button" onclick="validateForm()">Start</button>
+					 <select class="input-form" id="game-dimension">
+						<option value="beginner" selected>Beginner(6)</option>
+						<option value="intermediate">Intermediate(9)</option>
+						<option value="advanced">Advanced(16)</option>
+					 </select>
+				</div>
+			  <div class="game-screen">
+				 <div class="game-header"></div>
+				 <div class="game-board"></div>
+				 <div class="game-footer"></div>
+			  </div>
+			</div>
+			<form>
+				</br>
+				<label style="color:black;">Name: </label>
+				<input type="text" maxlength="12" id="name">
+				</br>
+				<div class="button-group">
+					<!--<button class="button" id="save">Save Game</button>-->
+					<input type="button" value="Save game" onclick="newSaveController.saveGame()" class="button">
+					<input type="button" value="Load game" onclick="newSaveController.loadGame()" class="button">
+					<!--<button class="button" id="load">Load Game</button>-->
+					<a href="scoretable.html" class="button">Open Result Page</a>
+				</div>
+			</form>
+			
+		</div>
+		
+		<script src="Square.js"></script>
+		<script src="Board.js"></script>
+		<script src="Game.js"></script>
+		<script src="Controller.js"></script>
+		<script src="SaveController.js"></script>
+		
+		<script>
+			var newController = new Controller();
+			var newGame = new Game("beginner", newController);
+			var newSaveController = new SaveController(newGame);
+				
+			function validateForm() {
+
+				playername = $('#name').val();
+				playername = playername.replace(/<\/?[^>]+(>|$)/g, "");
+
+				console.log(playername);
+				
+				mineAmount = document.getElementById("mine-amount").value;
+				var level = $('#game-dimension').find(":selected").val();
+				
+				//var newGame = new Game(level);
+				
+				console.log("Squares: " + Math.pow(newGame.levels[level].dimension, 2));
+				if ($.trim(playername).length == 0) {
+					alert("Please, fill the name field");
+				} else if (isNaN(mineAmount) || mineAmount < 1 || mineAmount > Math.pow(newGame.levels[level].dimension, 2) - 1) {
+					alert("Please, fill the mines field correctly");
+				} else {
+					newGame.setLevel(level);
+					newGame.setMineAmount(mineAmount);
+					
+					newGame.init();
+				}
+			}
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,1 @@
+{"dimension":6,"player":"abb","mines":"3"}

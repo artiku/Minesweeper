@@ -1,0 +1,99 @@
+ @font-face {
+font-family: 'Saira Semi Condensed', sans-serif;
+font-style: normal;
+font-weight: normal;
+}
+
+body {
+   width: 100%;
+   height: 100%;
+   text-align: center;
+   font-family: Saira Semi Condensed;
+   font-weight: bold;
+   font-size: 0.875rem;
+   letter-spacing: 0.04em;
+   margin: 0;
+   padding: 0px;
+   color: white;
+   background-color: #f5f5f5;
+}
+
+td, th {
+	color: black;
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.td-first {
+	color: white;
+	font-size: 15px;
+    background-color: #8d8d8d;
+}
+
+.logo-header {
+	color: white;
+   font-weight: bold;
+	margin: 0 auto;
+	margin-top: .4rem;
+	border: 2px solid;
+	border-color: #eeeeee #999999 #999999 #eeeeee;
+	background: #8d8d8d;
+	min-width: 450px;
+	display: block;
+	font-size: 3rem;
+}
+
+.h2 {
+	color: white;
+	font-weight: bold;
+    margin-top: .4rem;
+	margin-bottom: .3rem;
+	min-width: 450px;
+	font-size: 3rem;
+}
+
+.button {
+   font-family: Saira Semi Condensed;
+   font-weight: bold;
+   color: white;
+   border: 2px solid #e7e7e7;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 12px;
+   margin: 4px 2px;
+   -webkit-transition-duration: 0.4s; /* Safari */
+   transition-duration: 0.4s;
+   cursor: pointer;
+    border-radius: 3px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.button:hover {background-color: #e7e7e7;}
+
+.button:active {
+	position:relative;
+	top:1px;
+}
+
+.bg-block {
+	display: inline-block;
+	background-color: #f5f5f5;
+	margin: 0 auto;
+	margin-left: 5;
+	padding-left: .3rem;
+	padding-right: .3rem;
+	border-top: 20px solid;
+	border-top-color: #f5f5f5;
+}
+
+.high-score {
+    border-collapse: collapse;
+    width: 100%;
+}
